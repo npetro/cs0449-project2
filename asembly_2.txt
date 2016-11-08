@@ -1,0 +1,647 @@
+Dump of assembler code for function main:
+   0x080484f2 <+0>:	push   %ebp
+   0x080484f3 <+1>:	mov    %esp,%ebp
+   0x080484f5 <+3>:	and    $0xfffffff0,%esp
+   0x080484f8 <+6>:	push   %ebx
+   0x080484f9 <+7>:	sub    $0x8c,%esp
+   0x080484ff <+13>:	mov    0x804981c,%eax
+   0x08048504 <+18>:	mov    %eax,0x8(%esp) 		--------b1
+   0x08048508 <+22>:	movl   $0x64,0x4(%esp)
+   0x08048510 <+30>:	lea    0x1c(%esp),%ebx
+   0x08048514 <+34>:	mov    %ebx,(%esp)
+   0x08048517 <+37>:	call   0x8048348 <fgets@plt>
+   0x0804851c <+42>:	mov    %ebx,(%esp)			--------b2
+   0x0804851f <+45>:	call   0x804845f <c>
+   0x08048524 <+50>:	mov    %ebx,(%esp)			--------b8
+   0x08048527 <+53>:	call   0x804849b <p>
+   0x0804852c <+58>:	cmp    $0x1,%eax
+   0x0804852f <+61>:	jne    0x8048558 <main+102>
+   0x08048531 <+63>:	lea    0x1c(%esp),%eax
+   0x08048535 <+67>:	mov    %eax,(%esp)
+   0x08048538 <+70>:	call   0x8048444 <s>
+   0x0804853d <+75>:	cmp    $0xe,%eax
+   0x08048540 <+78>:	jle    0x8048558 <main+102>
+   0x08048542 <+80>:	lea    0x1c(%esp),%eax
+   0x08048546 <+84>:	mov    %eax,0x4(%esp)
+   0x0804854a <+88>:	movl   $0x8048634,(%esp)
+   0x08048551 <+95>:	call   0x8048368 <printf@plt>
+   0x08048556 <+100>:	jmp    0x8048564 <main+114>
+   0x08048558 <+102>:	movl   $0x8048664,(%esp)
+   0x0804855f <+109>:	call   0x8048378 <puts@plt>
+   0x08048564 <+114>:	add    $0x8c,%esp
+   0x0804856a <+120>:	pop    %ebx
+   0x0804856b <+121>:	mov    %ebp,%esp
+   0x0804856d <+123>:	pop    %ebp
+   0x0804856e <+124>:	ret    
+End of assembler dump.
+
+Dump of assembler code for function c:
+   0x0804845f <+0>:	push   %ebp
+   0x08048460 <+1>:	mov    %esp,%ebp
+   0x08048462 <+3>:	push   %ebx
+   0x08048463 <+4>:	sub    $0x4,%esp				--------b3
+   0x08048466 <+7>:	mov    0x8(%ebp),%ebx
+   0x08048469 <+10>:	test   %ebx,%ebx
+   0x0804846b <+12>:	je     0x8048495 <c+54>
+   0x0804846d <+14>:	mov    %ebx,(%esp)
+   0x08048470 <+17>:	call   0x8048444 <s>		--------b4
+   0x08048475 <+22>:	test   %eax,%eax
+   0x08048477 <+24>:	jle    0x8048495 <c+54>
+   0x08048479 <+26>:	mov    %ebx,(%esp)
+   0x0804847c <+29>:	call   0x8048444 <s>		--------b5
+   0x08048481 <+34>:	cmpb   $0xa,-0x1(%ebx,%eax,1)
+   0x08048486 <+39>:	jne    0x8048495 <c+54>
+   0x08048488 <+41>:	mov    %ebx,(%esp)
+   0x0804848b <+44>:	call   0x8048444 <s>		--------b6
+   0x08048490 <+49>:	movb   $0x0,-0x1(%ebx,%eax,1)
+   0x08048495 <+54>:	add    $0x4,%esp
+   0x08048498 <+57>:	pop    %ebx
+   0x08048499 <+58>:	pop    %ebp					--------b7
+   0x0804849a <+59>:	ret    
+End of assembler dump.
+
+Dump of assembler code for function p:
+   0x0804849b <+0>:	push   %ebp
+   0x0804849c <+1>:	mov    %esp,%ebp
+   0x0804849e <+3>:	push   %edi
+   0x0804849f <+4>:	push   %esi
+   0x080484a0 <+5>:	push   %ebx
+   0x080484a1 <+6>:	sub    $0x4,%esp
+   0x080484a4 <+9>:	mov    0x8(%ebp),%esi
+   0x080484a7 <+12>:	mov    %esi,(%esp)
+   0x080484aa <+15>:	call   0x8048444 <s>		--------b9
+   0x080484af <+20>:	lea    -0x1(%esi,%eax,1),%edi
+   0x080484b3 <+24>:	mov    $0x0,%ebx
+   0x080484b8 <+29>:	jmp    0x80484cf <p+52>
+   0x080484ba <+31>:	movzbl (%esi,%ebx,1),%eax
+   0x080484be <+35>:	cmp    (%edi),%al			--------b10 ---check for vowels
+   0x080484c0 <+37>:	je     0x80484c9 <p+46>
+   0x080484c2 <+39>:	mov    $0x0,%eax
+   0x080484c7 <+44>:	jmp    0x80484ea <p+79>
+   0x080484c9 <+46>:	sub    $0x1,%edi
+   0x080484cc <+49>:	add    $0x1,%ebx
+   0x080484cf <+52>:	mov    %esi,(%esp)
+   0x080484d2 <+55>:	call   0x8048444 <s>		--------b11
+   0x080484d7 <+60>:	mov    %eax,%edx
+   0x080484d9 <+62>:	shr    $0x1f,%edx
+   0x080484dc <+65>:	lea    (%edx,%eax,1),%eax
+   0x080484df <+68>:	sar    %eax
+   0x080484e1 <+70>:	cmp    %eax,%ebx
+   0x080484e3 <+72>:	jl     0x80484ba <p+31>		--------b12
+   0x080484e5 <+74>:	mov    $0x1,%eax
+   0x080484ea <+79>:	add    $0x4,%esp			--------b13
+   0x080484ed <+82>:	pop    %ebx
+   0x080484ee <+83>:	pop    %esi
+   0x080484ef <+84>:	pop    %edi
+   0x080484f0 <+85>:	pop    %ebp
+   0x080484f1 <+86>:	ret    
+End of assembler dump.
+
+Dump of assembler code for function s:
+   0x08048444 <+0>:	push   %ebp
+   0x08048445 <+1>:	mov    %esp,%ebp
+   0x08048447 <+3>:	mov    0x8(%ebp),%edx
+   0x0804844a <+6>:	mov    $0x0,%eax
+   0x0804844f <+11>:	cmpb   $0x0,(%edx)
+   0x08048452 <+14>:	je     0x804845d <s+25>
+   0x08048454 <+16>:	add    $0x1,%eax
+   0x08048457 <+19>:	cmpb   $0x0,(%edx,%eax,1)	--------b14
+   0x0804845b <+23>:	jne    0x8048454 <s+16>
+   0x0804845d <+25>:	pop    %ebp
+   0x0804845e <+26>:	ret    
+End of assembler dump.
+
+x/s (char *)$eax, $ebx, $edx, $edi, $esp, and $esi
+
+(----------------------- breakpoints ------------------------)
+
+Breakpoint 1, 0x08048504 in main ()
+Missing separate debuginfos, use: debuginfo-install glibc-2.12-1.132.el6_5.3.i686
+(gdb) x/s (char *)$eax
+0xd50440 <_IO_2_1_stdin_>:	 "\210 \255", <incomplete sequence \373>
+(gdb) x/s (char *)$ebx
+0xd4fff4:	 "|\375", <incomplete sequence \324>
+(gdb) x/s (char *)$edx
+0x1:	 <Address 0x1 out of bounds>
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esp
+0xffffd010:	 "\032Q\272"
+(gdb) x/s (char *)$esi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) c
+Continuing.
+hello
+
+Breakpoint 2, 0x0804851c in main ()
+(gdb) x/s (char *)$eax
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$ebx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$edx
+0xd51334 <_IO_stdfile_0_lock>:	 ""
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esp
+0xffffd010:	 ",\320\377\377d"
+(gdb) x/s (char *)$esi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$ebp
+0xffffd0a8:	 "(\321\377\377&=\275"
+(gdb) x/f (char *)$ebp
+0xffffd0a8:	4.1637542017494415e-305
+(gdb) x/f (char *)$esp
+0xffffd010:	2.1432156883815274e-312
+(gdb) x/f (char *)$al
+0x2c:	Cannot access memory at address 0x2c
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x08048463 in c ()
+(gdb) x/s (char *)$eax
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$ebx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$edx
+0xd51334 <_IO_stdfile_0_lock>:	 ""
+(gdb) x/s (char *)$ebp
+0xffffd008:	 "\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffd008:	4.8552688452596161e-270
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esp
+0xffffd004:	 ",\320\377\377\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$esp
+0xffffd004:	-nan(0xfd0a8ffffd02c)
+(gdb) x/s (char *)$al
+0x2c:	 <Address 0x2c out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x08048470 in c ()
+(gdb) x/s (char *)$eax
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$ebx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$edx
+0xd51334 <_IO_stdfile_0_lock>:	 ""
+(gdb) x/s (char *)$ebp
+0xffffd008:	 "\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffd008:	4.8552688452596161e-270
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esp
+0xffffd000:	 ",\320\377\377,\320\377\377\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/s (char *)$al
+0x2c:	 <Address 0x2c out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) x/s (char *)$eax
+0x1:	 <Address 0x1 out of bounds>
+(gdb) x/s (char *)$ebx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$edx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$ebp
+0xffffcff8:	 "\b\320\377\377u\204\004\b,\320\377\377,\320\377\377\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffcff8:	4.8546370272279289e-270
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esp
+0xffffcff8:	 "\b\320\377\377u\204\004\b,\320\377\377,\320\377\377\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/s (char *)$al
+0x1:	 <Address 0x1 out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) x/s (char *)$eax
+0x2:	 <Address 0x2 out of bounds>
+(gdb) x/s (char *)$ebx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$edx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$ebp
+0xffffcff8:	 "\b\320\377\377u\204\004\b,\320\377\377,\320\377\377\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffcff8:	4.8546370272279289e-270
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esp
+0xffffcff8:	 "\b\320\377\377u\204\004\b,\320\377\377,\320\377\377\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/s (char *)$al
+0x2:	 <Address 0x2 out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x0804847c in c ()
+(gdb) x/s (char *)$eax
+0x6:	 <Address 0x6 out of bounds>
+(gdb) x/s (char *)$ebx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$edx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$ebp
+0xffffd008:	 "\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffd008:	4.8552688452596161e-270
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esp
+0xffffd000:	 ",\320\377\377,\320\377\377\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/s (char *)$al
+0x6:	 <Address 0x6 out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) x/s (char *)$eax
+0x1:	 <Address 0x1 out of bounds>
+(gdb) x/s (char *)$ebx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$edx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$ebp
+0xffffcff8:	 "\b\320\377\377\201\204\004\b,\320\377\377,\320\377\377\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffcff8:	4.8546803518929497e-270
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esp
+0xffffcff8:	 "\b\320\377\377\201\204\004\b,\320\377\377,\320\377\377\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/s (char *)$al
+0x1:	 <Address 0x1 out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 6, 0x0804848b in c ()
+(gdb) x/s (char *)$eax
+0x6:	 <Address 0x6 out of bounds>
+(gdb) x/s (char *)$ebx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$edx
+0xffffd02c:	 "hello\n"
+(gdb) x/s (char *)$ebp
+0xffffd008:	 "\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffd008:	4.8552688452596161e-270
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esp
+0xffffd000:	 ",\320\377\377,\320\377\377\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/s (char *)$al
+0x6:	 <Address 0x6 out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 14, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048499 in c ()
+(gdb) x/s (char *)$eax
+0x6:	 <Address 0x6 out of bounds>
+(gdb) x/s (char *)$ebx
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$edx
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$ebp
+0xffffd008:	 "\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffd008:	4.8552688452596161e-270
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esp
+0xffffd008:	 "\250\320\377\377$\205\004\b,\320\377\377d"
+(gdb) x/s (char *)$al
+0x6:	 <Address 0x6 out of bounds>
+(gdb) c
+Continuing.
+
+(----------------------- breakpoint+7 ------------------------)
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 1, 0x08048524 in main ()
+(gdb) x/s (char *)$eax
+0x6:	 <Address 0x6 out of bounds>
+(gdb) x/s (char *)$ebx
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$edx
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$ebp
+0xffffd0a8:	 "(\321\377\377&=\275"
+(gdb) x/f (char *)$ebp
+0xffffd0a8:	4.1637542017494415e-305
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esp
+0xffffd010:	 ",\320\377\377d"
+(gdb) x/s (char *)$al
+0x6:	 <Address 0x6 out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x080484aa in p ()
+(gdb) x/s (char *)$eax
+0x6:	 <Address 0x6 out of bounds>
+(gdb) x/s (char *)$edx
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$edx
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$ebp
+0xffffd008:	 "\250\320\377\377,\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffd008:	4.8552977283696299e-270
+(gdb) x/s (char *)$edi
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$esi
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$esp
+0xffffcff8:	 ",\320\377\377,\320\377\377"
+(gdb) x/s (char *)$al
+0x6:	 <Address 0x6 out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 4, 0x080484d2 in p ()
+(gdb) x/s (char *)$eax
+0x5:	 <Address 0x5 out of bounds>
+(gdb) x/s (char *)$ebx
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$edx
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$ebp
+0xffffd008:	 "\250\320\377\377,\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffd008:	4.8552977283696299e-270
+(gdb) x/s (char *)$edi
+0xffffd030:	 "o"
+(gdb) x/s (char *)$esi
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$esp
+0xffffcff8:	 ",\320\377\377,\320\377\377"
+(gdb) x/s (char *)$al
+0x5:	 <Address 0x5 out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 7, 0x08048457 in s ()
+(gdb) c
+Continuing.
+
+Breakpoint 5, 0x080484e3 in p ()
+(gdb) x/s (char *)$eax
+0x2:	 <Address 0x2 out of bounds>
+(gdb) x/s (char *)$ebx
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$edx
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$ebp
+0xffffd008:	 "\250\320\377\377,\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffd008:	4.8552977283696299e-270
+(gdb) x/s (char *)$edi
+0xffffd030:	 "o"
+(gdb) x/s (char *)$esi
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$esp
+0xffffcff8:	 ",\320\377\377,\320\377\377"
+(gdb) x/s (char *)$al
+0x2:	 <Address 0x2 out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x080484be in p ()
+(gdb) x/s (char *)$eax
+0x68:	 <Address 0x68 out of bounds>
+(gdb) x/s (char *)$ebx
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$edx
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$ebp
+0xffffd008:	 "\250\320\377\377,\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffd008:	4.8552977283696299e-270
+(gdb) x/s (char *)$edi
+0xffffd030:	 "o"
+(gdb) x/s (char *)$esi
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$esp
+0xffffcff8:	 ",\320\377\377,\320\377\377"
+(gdb) x/s (char *)$al
+0x68:	 <Address 0x68 out of bounds>
+(gdb) c
+Continuing.
+
+Breakpoint 6, 0x080484ea in p ()
+(gdb) x/s (char *)$eax
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$ebx
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$edx
+0x0:	 <Address 0x0 out of bounds>
+(gdb) x/s (char *)$ebp
+0xffffd008:	 "\250\320\377\377,\205\004\b,\320\377\377d"
+(gdb) x/f (char *)$ebp
+0xffffd008:	4.8552977283696299e-270
+(gdb) x/s (char *)$edi
+0xffffd030:	 "o"
+(gdb) x/s (char *)$esi
+0xffffd02c:	 "hello"
+(gdb) x/s (char *)$esp
+0xffffcff8:	 ",\320\377\377,\320\377\377"
+(gdb) x/s (char *)$edi
+0xffffd030:	 "o"
+(gdb) x/s (char *)$al
+0x0:	 <Address 0x0 out of bounds>
+(gdb) c
+Continuing.
+Sorry! Not correct!
+
+Program exited with code 024.

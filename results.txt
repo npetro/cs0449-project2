@@ -1,0 +1,20 @@
+Program 1:
+Ran mystrings on nap67_1 and found "MvfeqpudzNkTBMVLpIIUQxMdixJSorry! Not correct!Congratulations!" around the middle of the resulting output. Tried the string "MvfeqpudzNkTBMVLpIIUQxMdixJ" that comes right before the prospective output and it worked!
+
+MvfeqpudzNkTBMVLpIIUQxMdixJ
+
+Program 2:
+aaaaaaaaaaaaaaa
+
+any combination of at least 15 vowels
+
+Program 3:
+info file
+disas from entry point address +12
+continued to progress by adding breakpoints at the address of the next call function
+finally arrived where there were comparisions and print outs 
+
+33333333g
+
+first10chars where newline counts as a char(8 numbers <=5 and two >5 )
+can be any length but only the first 10 matter
